@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>
-	Hello world!  
+	<a href="inventario">Ver inventario</a>  
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
