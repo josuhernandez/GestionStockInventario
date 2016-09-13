@@ -7,6 +7,11 @@ import com.ipartek.formacion.domain.Product;
 
 public interface ProductManager extends Serializable {
 
+	int INCREASE_MIN = 0;
+	int INCREASE_MAX = 50;
+
+	String MSG_ILLEGALARGUMENT_EXCEPTION = "El incremento debe ser entre " + INCREASE_MIN + " y " + INCREASE_MAX;
+
 	/**
 	 * Incrementa el precio de todos los productos
 	 *
