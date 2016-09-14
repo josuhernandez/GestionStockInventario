@@ -29,6 +29,30 @@
          <property name="price" value="22.79"/>
        </bean>
 
+	<!-- Personas -->
+	<bean id="persona1" class="com.ipartek.formacion.domain.Persona">
+		<property name="nombre" value="Manolo"></property>
+	</bean>
+	<bean id="persona2" class="com.ipartek.formacion.domain.Persona">
+		<property name="nombre" value="Manolito"></property>
+	</bean>
+	<bean id="persona3" class="com.ipartek.formacion.domain.Persona">
+		<property name="nombre" value="Manolaza"></property>
+	</bean>
+
+	<bean id="personaManager" class="com.ipartek.formacion.service.PersonaManagerImpl">
+		<property name="personas">
+			<list>
+                <ref bean="persona1"/>
+                <ref bean="persona2"/>
+                <ref bean="persona3"/>
+            </list>
+		</property>
+	</bean>
+
+
+	<!-- mensajes properties  -->
+
        <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
          <property name="basename" value="messages"/>
        </bean>
