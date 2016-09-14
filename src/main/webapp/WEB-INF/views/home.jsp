@@ -6,10 +6,12 @@
 	<title>Home</title>
 </head>
 <body>
-<h1>
-	<a href="inventario">Ver inventario</a>
-	<a href="persona">Ver Personas</a>    
-</h1>
+
+<ol>
+	<li><a href="inventario">Ver inventario</a></li>
+	<li><a href="persona">Ver Personas</a></li>
+	<li><a href="<c:url value="incremento-precio.html"/>">Incrementar Precio</a></li>
+</ol>
 
 <P>  The time on the server is ${serverTime}. </P>
 
