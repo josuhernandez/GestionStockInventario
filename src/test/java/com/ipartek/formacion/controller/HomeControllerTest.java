@@ -10,6 +10,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView;
 
 public class HomeControllerTest {
@@ -34,13 +35,16 @@ public class HomeControllerTest {
 	public void testHome() {
 		final HomeController hc = new HomeController();
 		final Locale locale = new Locale("es", "es");
-		assertEquals("No retorna el String de la Vista 'home.jsp' ", "home", hc.home(locale, null));
+		final Model model = null;// new Model();
+		assertEquals("No retorna el String de la Vista 'home.jsp' ", "home", hc.home(locale, model));
 	}
 
 	@Test
 	public void testInfo() {
 		final HomeController hc = new HomeController();
 		try {
+
+			// TODO request Mock
 
 			final ModelAndView mv = hc.info(null, null);
 			assertEquals("home", mv.getViewName());
