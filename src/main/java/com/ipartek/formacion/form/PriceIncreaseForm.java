@@ -1,4 +1,4 @@
-package com.ipartek.formacion.service.validation;
+package com.ipartek.formacion.form;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -6,7 +6,7 @@ import javax.validation.constraints.Min;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-public class PriceIncrease {
+public class PriceIncreaseForm {
 
 	protected final Log logger = LogFactory.getLog(getClass());
 

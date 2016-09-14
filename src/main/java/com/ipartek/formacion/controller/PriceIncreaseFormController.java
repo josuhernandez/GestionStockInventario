@@ -12,8 +12,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.ipartek.formacion.form.PriceIncreaseForm;
 import com.ipartek.formacion.service.ProductManager;
-import com.ipartek.formacion.service.validation.PriceIncrease;
 
 @Controller
 @RequestMapping(value = "/incremento-precio.html")
@@ -33,13 +33,13 @@ public class PriceIncreaseFormController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String onSubmit(@Valid PriceIncrease priceIncrease, BindingResult result) {
+	public String onSubmit(@Valid PriceIncreaseForm priceIncreaseForm, BindingResult result) {
 		// Si hay errores volver pagina priceincrease.jsp
 		if (result.hasErrors()) {
 			return "incremento-precio";
 		}
 
-		final int increase = priceIncrease.getPorcentaje();
+		final int increase = priceIncreaseForm.getPorcentaje();
 		this.logger.info("Incrementando todos los precios " + increase + "%.");
 
 		this.productManager.increasePrice(increase);
@@ -48,9 +48,9 @@ public class PriceIncreaseFormController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
-	protected PriceIncrease formBackingObject(HttpServletRequest request) throws ServletException {
+	protected PriceIncreaseForm populateForm(HttpServletRequest request) throws ServletException {
 		this.logger.debug("Rellando formulario antes de mostrar");
-		final PriceIncrease priceIncrease = new PriceIncrease();
+		final PriceIncreaseForm priceIncrease = new PriceIncreaseForm();
 		priceIncrease.setPorcentaje(15);
 		return priceIncrease;
 	}
