@@ -49,7 +49,7 @@ public class PriceIncreaseFormController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	protected String populateForm(Model model) throws ServletException {
-		this.logger.debug("Rellando formulario antes de mostrar");
+		this.logger.debug("Rellenando formulario antes de mostrar");
 		PriceIncreaseForm priceIncrease = new PriceIncreaseForm();
 		priceIncrease.setPorcentaje(15);
 		model.addAttribute("priceIncreaseForm", priceIncrease);
