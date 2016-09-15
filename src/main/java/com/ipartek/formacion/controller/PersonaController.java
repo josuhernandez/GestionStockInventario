@@ -47,33 +47,32 @@ public class PersonaController {
 
 	}
 
-	@RequestMapping(value = "/insertar-persona.html", method = RequestMethod.GET)
 	/**
 	 * Cargar datos en el modelo antes de presentar el formulario de la vista
 	 *
 	 * @param model
 	 *            atributos
-	 * @return nombre de la vista
+	 * @return String de la vista 'insert-persona.jsp'
 	 */
+	@RequestMapping(value = "/insertar-persona.html", method = RequestMethod.GET)
 	public String preView(Model model) {
 		this.logger.trace("Antes de cargar insert-persona.jsp");
 
 		Persona p = new Persona();
 		p.setEdad(18);
-		model.addAttribute("personaCrear", p);
+		model.addAttribute("persona", p);
 
 		return "insert-persona";
 	}
 
 	@RequestMapping(value = "/insertar-persona.html", method = RequestMethod.POST)
-	public String insert(@Valid Persona personaCrear, BindingResult br) {
-		this.logger.trace("Insertando persona " + personaCrear);
+	public String insert(@Valid Persona persona, BindingResult bindingResult) {
+		this.logger.trace("Insertando persona " + persona);
 
-		if (br.hasErrors()) {
-
+		if (bindingResult.hasErrors()) {
 			return "insert-persona";
 		} else {
-			this.logger.info("Insertado " + personaCrear);
+			this.logger.info("Insertado " + persona);
 			return "home";
 		}
 
