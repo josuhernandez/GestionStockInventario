@@ -1,13 +1,13 @@
 package com.ipartek.formacion.controller;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -48,11 +48,12 @@ public class PriceIncreaseFormController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
-	protected PriceIncreaseForm populateForm(HttpServletRequest request) throws ServletException {
+	protected String populateForm(Model model) throws ServletException {
 		this.logger.debug("Rellando formulario antes de mostrar");
-		final PriceIncreaseForm priceIncrease = new PriceIncreaseForm();
+		PriceIncreaseForm priceIncrease = new PriceIncreaseForm();
 		priceIncrease.setPorcentaje(15);
-		return priceIncrease;
+		model.addAttribute("priceIncreaseForm", priceIncrease);
+		return "incremento-precio";
 	}
 
 }
